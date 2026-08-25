@@ -1,3 +1,18 @@
 <resources>
+    <!--
+      Assignment 1
+      File Name: strings.xml
+      Name: Lucnel Nordelus
+      -->
     <string name="app_name">Project 1App</string>
+
+    <string name="title_temperature_conversion">Temperature Conversion</string>
+    <string name="temperature_label">Temperature:</string>
+    <string name="temperature_hint">Enter Temperature</string>
+    <string name="conversion_label">Conversion:</string>
+
+    <string name="button_c_to_f">C to F</string>
+    <string name="button_f_to_c">F to C</string>
+    <string name="button_reset">Reset</string>
+
 </resources>
