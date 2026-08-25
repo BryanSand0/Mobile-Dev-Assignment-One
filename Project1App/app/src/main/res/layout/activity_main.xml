@@ -65,10 +65,10 @@ Name: Lucnel Nordelus
             android:text="@string/button_reset" />
 
         <!-- Navigation Button: Moves the user to the second part of the assignment -->
-        <Button
-            android:id="@+id/buttonPart2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_part2" />
+    <Button
+        android:id="@+id/buttonPart2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_part2" />
 
-    </LinearLayout>
+</LinearLayout>

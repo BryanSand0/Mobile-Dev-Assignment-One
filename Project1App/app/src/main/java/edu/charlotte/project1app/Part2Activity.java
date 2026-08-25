@@ -6,6 +6,7 @@ Name: Lucnel Nordelus
 
 package edu.charlotte.project1app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,10 +33,14 @@ public class Part2Activity extends AppCompatActivity {
     private Button buttonCalculate;
     private Button buttonReset;
 
+    private Button buttonPart1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_part2);
+
+
 
         // Initialize UI components for Part 2
         editTemperature = findViewById(R.id.editTemperaturePart2);
@@ -47,6 +52,14 @@ public class Part2Activity extends AppCompatActivity {
 
         buttonCalculate = findViewById(R.id.buttonCalculate);
         buttonReset = findViewById(R.id.buttonResetPart2);
+
+        buttonPart1 = findViewById(R.id.buttonPart1);
+
+        // Set up click listener for navigation to Part 2
+        buttonPart1.setOnClickListener(v -> {
+            Intent intent = new Intent(Part2Activity.this, MainActivity.class);
+            startActivity(intent);
+        });
 
         // Set up click listeners for action buttons
         buttonCalculate.setOnClickListener(v -> calculateConversion());

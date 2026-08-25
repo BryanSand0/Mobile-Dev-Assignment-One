@@ -27,4 +27,7 @@
     <string name="button_calculate">Calculate</string>
     <string name="button_part2">Go to Part 2</string>
 
+    <!--- String Specifcally for returning back to part 1-->
+    <string name="button_part1">Go Back to Part 1</string>
+
 </resources>

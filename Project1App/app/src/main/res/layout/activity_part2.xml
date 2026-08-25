@@ -15,6 +15,7 @@ Name: Lucnel Nordelus
     android:padding="20dp">
 
     <!-- Title of the Activity -->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,5 +83,11 @@ Name: Lucnel Nordelus
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_reset" />
+
+    <Button
+        android:id="@+id/buttonPart1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_part1" />
 
 </LinearLayout>
