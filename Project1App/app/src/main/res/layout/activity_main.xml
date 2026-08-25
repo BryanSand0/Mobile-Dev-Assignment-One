@@ -6,57 +6,69 @@ File Name: activity_main.xml
 Name: Lucnel Nordelus
 -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
-
-    <TextView
+    <!-- Main Layout Container: Vertical stack with padding for the UI elements -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="25dp"
-        android:text="@string/title_temperature_conversion"
-        android:textSize="22sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/temperature_label" />
+        <!-- Application Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="25dp"
+            android:text="@string/title_temperature_conversion"
+            android:textSize="22sp" />
 
-    <EditText
-        android:id="@+id/editTemperature"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/temperature_hint"
-        android:inputType="numberDecimal|numberSigned" />
+        <!-- Input Section: Label and EditText for temperature entry -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temperature_label" />
 
-    <TextView
-        android:id="@+id/textConversion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/conversion_label" />
+        <EditText
+            android:id="@+id/editTemperature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/temperature_hint"
+            android:inputType="numberDecimal|numberSigned" />
 
-    <Button
-        android:id="@+id/buttonCtoF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_c_to_f" />
+        <!-- Output Section: Displays the calculated conversion result -->
+        <TextView
+            android:id="@+id/textConversion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/conversion_label" />
 
-    <Button
-        android:id="@+id/buttonFtoC"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_f_to_c" />
+        <!-- Action Buttons: Triggers conversion logic or resets the UI -->
+        <Button
+            android:id="@+id/buttonCtoF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_c_to_f" />
 
-    <Button
-        android:id="@+id/buttonReset"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_reset" />
+        <Button
+            android:id="@+id/buttonFtoC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_f_to_c" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/buttonReset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_reset" />
+
+        <!-- Navigation Button: Moves the user to the second part of the assignment -->
+        <Button
+            android:id="@+id/buttonPart2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_part2" />
+
+    </LinearLayout>
