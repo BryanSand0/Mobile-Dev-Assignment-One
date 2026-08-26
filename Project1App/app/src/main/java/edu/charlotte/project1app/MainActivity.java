@@ -1,7 +1,7 @@
 /*
 Assignment 1
-File Name: MainActivity.java
-Name: Lucnel Nordelus
+MainActivity.java
+Lucnel Nordelus
 */
 
 package edu.charlotte.project1app;

@@ -1,12 +1,11 @@
 /*
 Assignment 1
-File Name: Part2Activity.java
-Name: Lucnel Nordelus
+Part2Activity.java
+Lucnel Nordelus
 */
 
 package edu.charlotte.project1app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +31,6 @@ public class Part2Activity extends AppCompatActivity {
 
     private Button buttonCalculate;
     private Button buttonReset;
-
     private Button buttonPart1;
 
     @Override
@@ -52,18 +50,12 @@ public class Part2Activity extends AppCompatActivity {
 
         buttonCalculate = findViewById(R.id.buttonCalculate);
         buttonReset = findViewById(R.id.buttonResetPart2);
-
         buttonPart1 = findViewById(R.id.buttonPart1);
-
-        // Set up click listener for navigation to Part 2
-        buttonPart1.setOnClickListener(v -> {
-            Intent intent = new Intent(Part2Activity.this, MainActivity.class);
-            startActivity(intent);
-        });
 
         // Set up click listeners for action buttons
         buttonCalculate.setOnClickListener(v -> calculateConversion());
         buttonReset.setOnClickListener(v -> resetScreen());
+        buttonPart1.setOnClickListener(v -> finish());
     }
 
     /**

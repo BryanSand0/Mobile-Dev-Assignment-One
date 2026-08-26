@@ -2,8 +2,8 @@
 
 <!--
 Assignment 1
-File Name: activity_part2.xml
-Name: Lucnel Nordelus
+activity_part2.xml
+Lucnel Nordelus
 -->
 
 <!-- Main Layout Container for Part 2: Vertical stack with padding -->
@@ -72,17 +72,28 @@ Name: Lucnel Nordelus
     </RadioGroup>
 
     <!-- Action Buttons: Triggers conversion logic or resets the UI -->
-    <Button
-        android:id="@+id/buttonCalculate"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_calculate" />
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
-    <Button
-        android:id="@+id/buttonResetPart2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_reset" />
+        <Button
+            android:id="@+id/buttonResetPart2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="@string/button_reset" />
+
+        <Button
+            android:id="@+id/buttonCalculate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_calculate" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonPart1"
