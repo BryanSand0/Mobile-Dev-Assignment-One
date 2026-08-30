@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Assignment 2
+        strings.xml
+        Lucnel Nordelus
+    -->
+
+    <string name="app_name">Color Selection</string>
+
+    <string name="title_color_selection">Color Selection</string>
+
+       <string name="color_hex">Color HEX: #408000</string>
+       <string name="color_rgb">Color RGB: (64, 128, 0)</string>
+
+       <string name="color_rgb_format">Color RGB: (%1$d, %2$d, %3$d)</string>
+       <string name="color_hex_format">Color HEX: %1$s</string>
+
+       <string name="red_label">Red:</string>
+       <string name="green_label">Green:</string>
+       <string name="blue_label">Blue:</string>
+
+       <string name="initial_red">64</string>
+       <string name="initial_green">128</string>
+       <string name="initial_blue">0</string>
+
+       <string name="button_white">White</string>
+       <string name="button_black">Black</string>
+       <string name="button_blue">Blue</string>
+       <string name="button_reset">Reset</string>
+
+   </resources>

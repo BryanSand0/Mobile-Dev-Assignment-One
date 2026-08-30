@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Assignment 2
+    activity_main.xml
+    Lucnel Nordelus
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- App Title -->
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/title_color_selection"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Color Display -->
+        <View
+            android:id="@+id/colorView"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="#408000"
+            android:layout_marginBottom="8dp" />
+
+        <!-- HEX Value -->
+        <TextView
+            android:id="@+id/textHex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/color_hex"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- RGB Value -->
+        <TextView
+            android:id="@+id/textRgb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/color_rgb"
+            android:textSize="14sp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Red Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:text="@string/red_label"
+                android:textSize="14sp" />
+
+            <SeekBar
+                android:id="@+id/seekBarRed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="255"
+                android:progress="64" />
+
+            <TextView
+                android:id="@+id/textRedValue"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/initial_red"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- Green Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:text="@string/green_label"
+                android:textSize="14sp" />
+
+            <SeekBar
+                android:id="@+id/seekBarGreen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="255"
+                android:progress="128" />
+
+            <TextView
+                android:id="@+id/textGreenValue"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/initial_green"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- Blue Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:text="@string/blue_label"
+                android:textSize="14sp" />
+
+            <SeekBar
+                android:id="@+id/seekBarBlue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="255"
+                android:progress="0" />
+
+            <TextView
+                android:id="@+id/textBlueValue"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/initial_blue"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- Preset Color Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:id="@+id/buttonWhite"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="#D3D3D3"
+                android:textColor="#000000"
+                android:text="@string/button_white"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/buttonBlack"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="#D3D3D3"
+                android:textColor="#000000"
+                android:text="@string/button_black"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/buttonBlue"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="#D3D3D3"
+                android:textColor="#000000"
+                android:text="@string/button_blue"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <!-- Reset Button -->
+        <Button
+            android:id="@+id/buttonReset"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#D3D3D3"
+            android:textColor="#000000"
+            android:text="@string/button_reset"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
