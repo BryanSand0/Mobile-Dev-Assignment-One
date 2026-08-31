@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         startButton = findViewById(R.id.button_start);
 
         startButton.setOnClickListener(v -> {
-                //Intent intent = new Intent(MainActivity.this, Part2Activity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+                startActivity(intent);
             }
         );
     }
