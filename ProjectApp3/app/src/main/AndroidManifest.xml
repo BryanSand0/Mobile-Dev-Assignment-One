@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegistrationActivity"
+            android:name=".CreateUserActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

@@ -12,7 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class CreateUserActivity extends AppCompatActivity {
 
     public static final String KEY_NAME = "NAME";
 
@@ -24,7 +24,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_create_user);
 
         ViewCompat.setOnApplyWindowInsetsListener(
                 findViewById(R.id.main),
@@ -54,7 +54,7 @@ public class RegistrationActivity extends AppCompatActivity {
             if (name.isEmpty()) {
 
                 Toast.makeText(
-                        RegistrationActivity.this,
+                        CreateUserActivity.this,
                         "Name is required",
                         Toast.LENGTH_SHORT
                 ).show();
@@ -62,7 +62,7 @@ public class RegistrationActivity extends AppCompatActivity {
             } else {
 
                 Intent intent = new Intent(
-                        RegistrationActivity.this,
+                        CreateUserActivity.this,
                         ProfileActivity.class
                 );
 

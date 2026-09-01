@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         startButton = findViewById(R.id.button_start);
 
         startButton.setOnClickListener(v -> {
-                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+                Intent intent = new Intent(MainActivity.this, CreateUserActivity.class);
                 startActivity(intent);
             }
         );
