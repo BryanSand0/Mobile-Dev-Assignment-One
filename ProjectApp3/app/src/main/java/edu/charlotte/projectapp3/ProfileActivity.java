@@ -37,8 +37,8 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         updateButton.setOnClickListener(v -> {
-                    //Intent intent = new Intent(ProfileActivity.this, /*Part4.class*/);
-                    //startActivity(intent);
+                    Intent intent = new Intent(ProfileActivity.this, EditUserActivity.class);
+                    startActivity(intent);
                 }
         );
     }
