@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,6 +17,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     private TextView textViewName;
     private Button updateButton;
+
+    private ActivityResultLauncher<Intent> editUserLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +40,20 @@ public class ProfileActivity extends AppCompatActivity {
             textViewName.setText(name);
         }
 
+        editUserLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        String updatedName = result.getData().getStringExtra(CreateUserActivity.KEY_NAME);
+                        textViewName.setText(updatedName);
+                    }
+                }
+        );
+
         updateButton.setOnClickListener(v -> {
                     Intent intent = new Intent(ProfileActivity.this, EditUserActivity.class);
-                    startActivity(intent);
+                    intent.putExtra(CreateUserActivity.KEY_NAME, textViewName.getText().toString());
+                    editUserLauncher.launch(intent);
                 }
         );
     }

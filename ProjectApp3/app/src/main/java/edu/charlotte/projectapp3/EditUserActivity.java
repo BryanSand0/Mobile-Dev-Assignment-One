@@ -27,32 +27,29 @@ public class EditUserActivity extends AppCompatActivity {
             return insets;
         });
 
-        setTitle("Edit User");
+        setTitle("Edit User Info");
 
-        editTextName = findViewById(R.id.editTextEditName);
-        Button buttonSubmit = findViewById(R.id.buttonSubmit);
-        Button buttonCancel = findViewById(R.id.buttonCancel);
+        editTextName = findViewById(R.id.editTextName);
+        Button buttonSubmit = findViewById(R.id.button_submit);
+        Button buttonCancel = findViewById(R.id.button_cancel);
 
-        if (getIntent() != null && getIntent().hasExtra(CreateUserActivity.KEY_NAME)) {
-            String currentName = getIntent().getStringExtra(CreateUserActivity.KEY_NAME);
-            editTextName.setText(currentName);
+        if (getIntent() != null && getIntent().getExtras() != null && getIntent().hasExtra(CreateUserActivity.KEY_NAME)) {
+            String name = getIntent().getStringExtra(CreateUserActivity.KEY_NAME);
+            editTextName.setText(name);
         }
 
         buttonSubmit.setOnClickListener(v -> {
             String name = editTextName.getText().toString().trim();
             if (name.isEmpty()) {
-                Toast.makeText(this, "Name is required", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditUserActivity.this, "Name is required", Toast.LENGTH_SHORT).show();
             } else {
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra(CreateUserActivity.KEY_NAME, name);
-                setResult(RESULT_OK, resultIntent);
+                Intent intent = new Intent();
+                intent.putExtra(CreateUserActivity.KEY_NAME, name);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
 
-        buttonCancel.setOnClickListener(v -> {
-            setResult(RESULT_CANCELED);
-            finish();
-        });
+        buttonCancel.setOnClickListener(v -> finish());
     }
 }
