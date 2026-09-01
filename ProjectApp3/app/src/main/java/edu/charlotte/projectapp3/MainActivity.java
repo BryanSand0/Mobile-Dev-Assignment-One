@@ -10,10 +10,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-/* Assigment 3
- * Main Activity Project
- * Bryan Sandoval
- */
 public class MainActivity extends AppCompatActivity {
 
     private Button startButton;
