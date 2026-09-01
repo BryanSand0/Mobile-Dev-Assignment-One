@@ -1,6 +1,8 @@
 package edu.charlotte.projectapp3;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
@@ -8,9 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
 import android.widget.Toast;
+
 public class RegistrationActivity extends AppCompatActivity {
     EditText editTextName;
+    private Button next_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,13 +32,14 @@ public class RegistrationActivity extends AppCompatActivity {
 
         editTextName = findViewById(R.id.editTextName);
 
-        // Validation: Ensure input is not empty
-//        if (input.isEmpty()) {
-//            Toast.makeText(
-//                    this,
-//                    "Please enter a temperature",
-//                    Toast.LENGTH_SHORT
-//            ).show();
-//            return;
-        }
+        next_button = findViewById(R.id.next_button);
+
+        next_button.setOnClickListener(v -> {
+                    Intent intent = new Intent(RegistrationActivity.this,ProfileActivity.class);
+                    startActivity(intent);
+                }
+        );
+
+
     }
+}

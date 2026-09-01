@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Project App 3</string>
-    <string name="id_hint">Enter Name</string>
-    <string name="select">Enter Name</string>
+    <string name="editTextName">Enter Name</string>
+    <string name="next_button">Next</string>
 </resources>
