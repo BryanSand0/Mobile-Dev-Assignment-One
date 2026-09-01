@@ -1,5 +1,6 @@
 package edu.charlotte.projectapp3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class ProfileActivity extends AppCompatActivity {
 
     private TextView textViewName;
-    private String name;
+    private Button updateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +28,18 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         setTitle("Profile");
+        textViewName = findViewById(R.id.display_name);
+        updateButton = findViewById(R.id.button_update);
 
-        textViewName = findViewById(R.id.textViewNameValue);
-        Button buttonUpdate = findViewById(R.id.buttonUpdate);
-
-        if (getIntent() != null && getIntent().hasExtra(CreateUserActivity.KEY_NAME)) {
-            name = getIntent().getStringExtra(CreateUserActivity.KEY_NAME);
+        if (getIntent() != null && getIntent().getExtras() != null && getIntent().hasExtra(CreateUserActivity.KEY_NAME)) {
+            String name = getIntent().getStringExtra(CreateUserActivity.KEY_NAME);
             textViewName.setText(name);
         }
 
-        buttonUpdate.setOnClickListener(v -> {
-            // Part 4: Logic to launch EditUserActivity will go here
-        });
+        updateButton.setOnClickListener(v -> {
+                    //Intent intent = new Intent(ProfileActivity.this, /*Part4.class*/);
+                    //startActivity(intent);
+                }
+        );
     }
 }
