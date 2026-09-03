@@ -1,3 +1,8 @@
+/*
+ * Assignment 3
+ * MainActivity.java
+ * Lucnel Nordelus
+ */
 package edu.charlotte.projectapp3;
 
 import android.content.Intent;

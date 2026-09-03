@@ -1,4 +1,4 @@
-package edu.charlotte.projectapp3;
+package edu.charlotte.projectapp4;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,8 +33,8 @@ public class EditUserActivity extends AppCompatActivity {
         Button buttonSubmit = findViewById(R.id.button_submit);
         Button buttonCancel = findViewById(R.id.button_cancel);
 
-        if (getIntent() != null && getIntent().getExtras() != null && getIntent().hasExtra(CreateUserActivity.KEY_NAME)) {
-            String name = getIntent().getStringExtra(CreateUserActivity.KEY_NAME);
+        if (getIntent() != null && getIntent().getExtras() != null && getIntent().hasExtra(CreateUserActivity.KEY_USER)) {
+            String name = getIntent().getStringExtra(CreateUserActivity.KEY_USER);
             editTextName.setText(name);
         }
 
@@ -44,7 +44,7 @@ public class EditUserActivity extends AppCompatActivity {
                 Toast.makeText(EditUserActivity.this, "Name is required", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent();
-                intent.putExtra(CreateUserActivity.KEY_NAME, name);
+                intent.putExtra(CreateUserActivity.KEY_USER, name);
                 setResult(RESULT_OK, intent);
                 finish();
             }

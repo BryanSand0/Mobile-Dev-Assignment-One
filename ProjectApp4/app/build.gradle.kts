@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "edu.charlotte.projectapp3"
+    namespace = "edu.charlotte.projectapp4"
     compileSdk {
         version = release(37)
     }
