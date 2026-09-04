@@ -1,3 +1,8 @@
+/*
+ * Assignment 4
+ * User.java
+ * Lucnel Nordelus
+ */
 package edu.charlotte.projectapp4;
 
 import java.io.Serializable;

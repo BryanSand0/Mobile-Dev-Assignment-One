@@ -1,3 +1,8 @@
+/*
+ * Assignment 4
+ * EditUserActivity.java
+ * Lucnel Nordelus
+ */
 package edu.charlotte.projectapp4;
 
 import android.content.Intent;
@@ -14,15 +19,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-/*
-Assigment 04
-EditUserActivity
-Bryan Sandoval
- */
-
 public class EditUserActivity extends AppCompatActivity {
 
-    public static final String KEY_USER = "USER";
     private EditText editTextName;
     private EditText editTextEmail;
     private RadioGroup radioGroupRole;
@@ -61,6 +59,22 @@ public class EditUserActivity extends AppCompatActivity {
         radioGroupRole = findViewById(R.id.radioGroupRole);
         submitButton = findViewById(R.id.button_submit);
         cancelButton = findViewById(R.id.button_cancel);
+
+        // 1. Receive the User object and initialize views
+        if (getIntent() != null && getIntent().hasExtra(CreateUserActivity.KEY_USER)) {
+            User user = (User) getIntent().getSerializableExtra(CreateUserActivity.KEY_USER);
+            if (user != null) {
+                editTextName.setText(user.getName());
+                editTextEmail.setText(user.getEmail());
+                if (user.getRole().equals(getString(R.string.student))) {
+                    radioGroupRole.check(R.id.radioStudent);
+                } else if (user.getRole().equals(getString(R.string.employee))) {
+                    radioGroupRole.check(R.id.radioEmployee);
+                } else if (user.getRole().equals(getString(R.string.other))) {
+                    radioGroupRole.check(R.id.radioOther);
+                }
+            }
+        }
 
         submitButton.setOnClickListener(v -> {
 
@@ -108,16 +122,10 @@ public class EditUserActivity extends AppCompatActivity {
                 User user =
                         new User(name, email, role);
 
-                Intent intent =
-                        new Intent(
-                                EditUserActivity.this,
-                                ProfileActivity.class
-                        );
-
-                intent.putExtra(KEY_USER, user);
-
-                startActivity(intent);
-
+                // 2.b Send back the new User object to the Profile activity
+                Intent intent = new Intent();
+                intent.putExtra(CreateUserActivity.KEY_USER, user);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });

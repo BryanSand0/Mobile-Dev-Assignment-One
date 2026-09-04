@@ -1,3 +1,8 @@
+/*
+ * Assignment 4
+ * CreateUserActivity.java
+ * Lucnel Nordelus
+ */
 package edu.charlotte.projectapp4;
 
 import android.content.Intent;
