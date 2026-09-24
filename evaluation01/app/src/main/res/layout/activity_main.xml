@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- App Title -->
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_color_selection"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Loan Type -->
+    <TextView
+        android:id="@+id/textViewLoanTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/loantype_label"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+    <TextView
+        android:id="@+id/textLoanTypeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_available"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanTypeLabel"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLoanType"
+        app:layout_constraintStart_toEndOf="@+id/textViewLoanTypeLabel"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/buttonLoanType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="88dp"
+        android:text="@string/button_loanType"
+        android:textAllCaps="false"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanTypeLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Loan Amount -->
+    <TextView
+        android:id="@+id/textViewLoanAmountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/loanamount_label"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewLoanTypeLabel" />
+
+    <TextView
+        android:id="@+id/textLoanAmountValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_available"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanAmountLabel"
+        app:layout_constraintEnd_toStartOf="@+id/buttonloanAmount"
+        app:layout_constraintStart_toEndOf="@+id/textViewLoanAmountLabel"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/buttonloanAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="88dp"
+        android:text="@string/button_loanAmount"
+        android:textAllCaps="false"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanAmountLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Down Payment -->
+    <TextView
+        android:id="@+id/textViewLoanDownPaymentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/loandownpayment_label"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewLoanAmountLabel" />
+
+    <TextView
+        android:id="@+id/textLoanDownPaymentValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_available"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanDownPaymentLabel"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDownPayment"
+        app:layout_constraintStart_toEndOf="@+id/textViewLoanDownPaymentLabel"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/buttonDownPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="88dp"
+        android:text="@string/button_downPayment"
+        android:textAllCaps="false"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanDownPaymentLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Loan Term -->
+    <TextView
+        android:id="@+id/textViewLoanTermLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/loanterm_label"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewLoanDownPaymentLabel" />
+
+    <TextView
+        android:id="@+id/textLoanTermValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_available"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanTermLabel"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLoanTerm"
+        app:layout_constraintStart_toEndOf="@+id/textViewLoanTermLabel"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/buttonLoanTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="88dp"
+        android:text="@string/button_loanterm"
+        android:textAllCaps="false"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanTermLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Interest Rate -->
+    <TextView
+        android:id="@+id/textViewLoanInterestLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/loaninterest_label"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewLoanTermLabel" />
+
+    <TextView
+        android:id="@+id/textLoanInterestValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_available"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanInterestLabel"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLoanInterest"
+        app:layout_constraintStart_toEndOf="@+id/textViewLoanInterestLabel"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/buttonLoanInterest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="88dp"
+        android:text="@string/button_loaninterest"
+        android:textAllCaps="false"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewLoanInterestLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Reset and Submit Buttons -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewLoanInterestLabel">
+
+        <Button
+            android:id="@+id/buttonReset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="@string/button_reset"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/buttonSubmit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="@string/button_submit"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

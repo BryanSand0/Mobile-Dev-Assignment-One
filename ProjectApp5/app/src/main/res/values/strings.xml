@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">ProjectApp5</string>
+    <string name="welcome_label">Welcome !!</string>
+    <string name="start_label">Start</string>
+    <string name="create_user_info_label">Create User Info</string>
+    <string name="enter_name_label">Enter Name</string>
+    <string name="enter_email_label">Enter Email</string>
+    <string name="name_label">Name:</string>
+    <string name="email_label">Email:</string>
+    <string name="role_label">Role:</string>
+    <string name="income_label">Income:</string>
+    <string name="status_label">Status:</string>
+    <string name="n_a_label">N/A</string>
+    <string name="select_label">Select</string>
+    <string name="next_label">Next</string>
+    <string name="select_role_label">Select Role</string>
+    <string name="student_label">Student</string>
+    <string name="employee_label">Employee</string>
+    <string name="other_label">Other</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="submit_label">Submit</string>
+    <string name="select_household_income_label">Select Household Income</string>
+    <string name="select_living_status_label">Select Living Status</string>
+    <string name="living_text_label">Please select your living status:</string>
+    <string name="home_owner_label">Homeowner</string>
+    <string name="renter_label">Renter</string>
+    <string name="lessee_label">Lessee</string>
+    <string name="prefer_not_to_say_label">Prefer not to say</string>
+    <string name="profile_label">Profile</string>
+    <string name="close_label">Close</string>
+</resources>

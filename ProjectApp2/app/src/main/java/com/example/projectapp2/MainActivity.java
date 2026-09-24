@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    // SeekBars
     private SeekBar seekBarRed;
     private SeekBar seekBarGreen;
     private SeekBar seekBarBlue;
@@ -30,10 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textHex;
     private TextView textRgb;
 
-    // Color display
     private View colorView;
 
-    // Buttons
     private Button buttonWhite;
     private Button buttonBlack;
     private Button buttonBlue;

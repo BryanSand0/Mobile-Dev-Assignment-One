@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">evaluation01</string>
+    <string name="title_color_selection">Loan Calculator</string>
+
+    <!-- Main Activity Labels -->
+    <string name="loaninterest_label">Loan Interest:</string>
+    <string name="loanterm_label">Loan Term:</string>
+    <string name="loandownpayment_label">Down Payment:</string>
+    <string name="loanamount_label">Loan Amount:</string>
+    <string name="loantype_label">Loan Type:</string>
+
+    <!-- Buttons -->
+    <string name="button_submit">Submit</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_select">select</string>
+    <string name="button_loanType">select</string>
+    <string name="button_loanAmount">select</string>
+    <string name="button_downPayment">select</string>
+    <string name="button_loanterm">select</string>
+    <string name="button_loaninterest">select</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_close">Close</string>
+
+    <!-- Selection Titles -->
+    <string name="title_select_type">Select Loan Type</string>
+    <string name="title_enter_amount">Enter Loan Amount</string>
+    <string name="title_select_down_payment">Select Down Payment</string>
+    <string name="title_select_term">Select Loan Term</string>
+    <string name="title_enter_interest">Interest Rate</string>
+    <string name="title_loan_details">Your Loan Details</string>
+
+    <!-- Loan Types -->
+    <string name="type_home">Home Loan</string>
+    <string name="type_auto">Auto Loan</string>
+    <string name="type_personal">Personal Loan</string>
+
+    <!-- Values & Hints -->
+    <string name="not_available">N/A</string>
+    <string name="hint_amount">e.g. 50000</string>
+    <string name="hint_interest">e.g. 3.5</string>
+    <string name="label_select_type_prompt">Select Loan Type:</string>
+    <string name="label_enter_amount_prompt">Enter Loan Amount:</string>
+    <string name="label_select_down_payment_prompt">Select Down Payment:</string>
+    <string name="label_select_term_prompt">Select Loan Term:</string>
+    <string name="label_enter_interest_prompt">Enter Interest Rate (%):</string>
+
+    <!-- Validation Messages -->
+    <string name="error_invalid_amount">Please enter a valid amount greater than 0</string>
+    <string name="error_invalid_interest">Please enter a rate between 0.1 and 30.0</string>
+    <string name="error_missing_data">Please select all loan parameters before submitting</string>
+    <string name="error_no_type">Please select a loan type</string>
+    <string name="error_no_amount">Please select a loan amount</string>
+    <string name="error_no_down_payment">Please select a down payment</string>
+    <string name="error_no_term">Please select a loan term</string>
+    <string name="error_no_interest">Please select an interest rate</string>
+
+    <!-- Terms -->
+    <string name="term_10_years">10 Years</string>
+    <string name="term_15_years">15 Years</string>
+    <string name="term_20_years">20 Years</string>
+    <string name="term_25_years">25 Years</string>
+    <string name="term_30_years">30 Years</string>
+</resources>
