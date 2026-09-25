@@ -1,7 +1,7 @@
 /*
  * Assignment 5
  * File Name: SelectIncomeFragment.java
- * Full Name: Lucnel Nordelus
+ * Full Name: Bryan Sandoval
  */
 
 package com.example.projectapp5;

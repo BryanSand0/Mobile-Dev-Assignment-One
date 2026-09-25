@@ -1,7 +1,7 @@
 /*
  * Assignment 5
  * File Name: MainActivity.java
- * Full Name: Lucnel Nordelus
+ * Full Name: Bryan Sandoval & Lucnel Nordelus
  */
 
 package com.example.projectapp5;
@@ -65,17 +65,29 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     public void onSelectIncome() {
-        // Part 4 placeholder
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main, new SelectIncomeFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
     public void onSelectStatus() {
-        // Part 5 placeholder
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main, new SelectLivingStatusFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
     public void onUserCreated(User user) {
-        // Part 6 placeholder
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main, new ProfileFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
     /*
@@ -101,26 +113,35 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     public void onIncomeSelected(String income) {
-        // Part 4 placeholder
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(CREATE_USER_TAG);
+        if (fragment instanceof CreateUserFragment) {
+            ((CreateUserFragment) fragment).setIncome(income);
+        }
+        getSupportFragmentManager().popBackStack();
     }
 
     @Override
     public void onIncomeSelectionCancelled() {
-        // Part 4 placeholder
+        getSupportFragmentManager().popBackStack();
     }
 
     @Override
     public void onLivingStatusSelected(String status) {
-        // Part 5 placeholder
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(CREATE_USER_TAG);
+        if (fragment instanceof CreateUserFragment) {
+            ((CreateUserFragment) fragment).setStatus(status);
+        }
+        getSupportFragmentManager().popBackStack();
     }
 
     @Override
     public void onLivingStatusSelectionCancelled() {
-        // Part 5 placeholder
+        getSupportFragmentManager().popBackStack();
     }
 
     @Override
     public void onCloseProfile() {
-        // Part 6 placeholder
+        //Just close the system at this point
+        System.exit(0);
     }
 }
