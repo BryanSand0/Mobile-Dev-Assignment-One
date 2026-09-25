@@ -1,7 +1,7 @@
 /*
- * Assignment 5
+ * Assignment #5
  * File Name: ProfileFragment.java
- * Full Name: Lucnel Nordelus
+ * Full Name: Bryan Sandoval & Lucnel Nordelus
  */
 
 package com.example.projectapp5;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,6 +51,7 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -82,9 +82,6 @@ public class ProfileFragment extends Fragment {
             textViewRole.setText(mUser.getRole());
             textViewIncome.setText(mUser.getIncome());
             textViewStatus.setText(mUser.getStatus());
-        }
-        else {
-            Toast.makeText(getContext(), "User not displaying, User object not created", Toast.LENGTH_SHORT).show();
         }
 
         buttonClose.setOnClickListener(v -> {

@@ -1,7 +1,7 @@
 /*
- * Assignment 5
+ * Assignment #5
  * File Name: User.java
- * Full Name: Lucnel Nordelus
+ * Full Name: Bryan Sandoval & Lucnel Nordelus
  */
 
 package com.example.projectapp5;
@@ -10,11 +10,11 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    private String name;
-    private String email;
-    private String role;
-    private String income;
-    private String status;
+    private final String name;
+    private final String email;
+    private final String role;
+    private final String income;
+    private final String status;
 
     public User(
             String name,

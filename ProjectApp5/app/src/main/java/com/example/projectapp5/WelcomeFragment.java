@@ -1,7 +1,7 @@
 /*
- * Assignment 5
+ * Assignment #5
  * File Name: WelcomeFragment.java
- * Full Name: Lucnel Nordelus
+ * Full Name: Bryan Sandoval & Lucnel Nordelus
  */
 
 package com.example.projectapp5;

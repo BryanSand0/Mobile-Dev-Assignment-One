@@ -1,7 +1,7 @@
 /*
- * Assignment 5
+ * Assignment #5
  * File Name: SelectIncomeFragment.java
- * Full Name: Bryan Sandoval
+ * Full Name: Bryan Sandoval & Lucnel Nordelus
  */
 
 package com.example.projectapp5;
@@ -26,17 +26,11 @@ public class SelectIncomeFragment extends Fragment {
     private TextView textViewSeekProgress;
 
     private static final String[] INCOME_RANGES = {
-            "< $25k",
-            "$25k - $50k",
-            "$50k - $75k",
-            "$75k - $100k",
-            "$100k - $125k",
-            "$125k - $150k",
-            "$150k - $175k",
-            "$175k - $200k",
-            "$200k - $250k",
-            "$250k - $300k",
-            "> $300k"
+            "<$25K",
+            "$25K to <$50K",
+            "$50K to <$100K",
+            "$100K to <$200K",
+            ">$200K"
     };
 
     public interface SelectIncomeListener {

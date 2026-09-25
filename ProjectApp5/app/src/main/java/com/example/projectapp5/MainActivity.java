@@ -1,5 +1,5 @@
 /*
- * Assignment 5
+ * Assignment #5
  * File Name: MainActivity.java
  * Full Name: Bryan Sandoval & Lucnel Nordelus
  */
@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public class MainActivity extends AppCompatActivity
         implements
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     /*
-     * PART 2 Placeholders (Parts 4-6 not implemented per instructions)
+     * Open Income & Status Selection
      */
     @Override
     public void onSelectIncome() {
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity
     public void onUserCreated(User user) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.main, new ProfileFragment())
+                .replace(R.id.main, ProfileFragment.newInstance(user))
                 .addToBackStack(null)
                 .commit();
     }
@@ -109,7 +110,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     /*
-     * Interface placeholders for Parts 4-6
+     * PART 4
+     * Return selected income
      */
     @Override
     public void onIncomeSelected(String income) {
@@ -125,6 +127,10 @@ public class MainActivity extends AppCompatActivity
         getSupportFragmentManager().popBackStack();
     }
 
+    /*
+     * PART 5
+     * Return selected living status
+     */
     @Override
     public void onLivingStatusSelected(String status) {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(CREATE_USER_TAG);
@@ -141,7 +147,10 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onCloseProfile() {
-        //Just close the system at this point
-        System.exit(0);
+        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main, new WelcomeFragment())
+                .commit();
     }
 }
