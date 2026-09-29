@@ -29,6 +29,5 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    //TODO:
-    // Create a function that pushes FragmentGenres to the backstack, sends the genre selected to Books Fragment
+    //Bryan's TODO: Create a function that pushes FragmentGenres to the backstack, sends the genre selected to Books Fragment
 }

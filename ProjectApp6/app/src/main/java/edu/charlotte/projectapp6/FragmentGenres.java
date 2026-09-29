@@ -87,8 +87,7 @@ public class FragmentGenres extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast toast = Toast.makeText(view.getContext(), "Clicked on " + genres.get(position),Toast.LENGTH_SHORT);
                 toast.show();
-                //TODO:
-                //Use a listner that calls back to main to go to the next screen, put this fragment on the backstack
+                //Bryan's TODO: Use a listner that calls back to main to go to the next screen, put this fragment on the backstack
             }
         });
     }
