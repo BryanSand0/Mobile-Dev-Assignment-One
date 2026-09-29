@@ -7,6 +7,7 @@
     tools:context=".FragmentBooks">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/textViewBooks"
         android:layout_width="206dp"
@@ -35,17 +36,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewBooks" />
 
+    <Button
+        android:id="@+id/buttonBackBooks"
+        android:layout_width="380dp"
+        android:layout_height="47dp"
+        android:text="Back"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="828dp" />
+
     <ListView
         android:id="@+id/listViewBooks"
         android:layout_width="409dp"
-        android:layout_height="814dp"
+        android:layout_height="650dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewGenreTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewGenreTitle" >
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,11 @@ package edu.charlotte.projectapp6;
  */
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,4 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.main, new FragmentGenres())
                 .commit();
     }
+
+    //TODO:
+    // Create a function that pushes FragmentGenres to the backstack, sends the genre selected to Books Fragment
 }
