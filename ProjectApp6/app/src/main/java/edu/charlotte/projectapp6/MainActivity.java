@@ -1,5 +1,11 @@
 package edu.charlotte.projectapp6;
 
+/*
+ * Assignment #6
+ * File Name: MainActivity.java
+ * Full Name: Bryan Sandoval
+ */
+
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
