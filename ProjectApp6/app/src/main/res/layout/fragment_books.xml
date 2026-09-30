@@ -6,15 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".FragmentBooks">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <TextView
         android:id="@+id/textViewBooks"
-        android:layout_width="206dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="106dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="106dp"
         android:text="Books"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -26,37 +22,36 @@
         android:id="@+id/textViewGenreTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="175dp"
-        android:text="Genre 1"
+        android:text="Genre"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewBooks" />
 
-    <Button
-        android:id="@+id/buttonBackBooks"
-        android:layout_width="380dp"
-        android:layout_height="47dp"
-        android:text="Back"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="828dp" />
-
     <ListView
         android:id="@+id/listViewBooks"
-        android:layout_width="409dp"
-        android:layout_height="650dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBackBooks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewGenreTitle" >
+        app:layout_constraintTop_toBottomOf="@+id/textViewGenreTitle" />
 
-    </ListView>
+    <Button
+        android:id="@+id/buttonBackBooks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Back"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
