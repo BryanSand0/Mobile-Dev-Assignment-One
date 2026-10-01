@@ -2,11 +2,12 @@ package edu.charlotte.projectapp6;
 
 /*
  * Assignment #6
- * File Name: FragmentBooks.java
+ * File Name: FragmentBookDetails.java
  * Full Name: Bryan Sandoval, Lucnel Nordelus
  */
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,30 +21,32 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentBookDetails#newInstance} factory method to
- * create an instance of this fragment.
+ * FragmentBookDetails displays detailed information about a selected Book object.
+ * 
+ * DEV NOTES:
+ * 1. Object Passing Down: Receives a Serializable Book object via Bundle arguments in newInstance(book).
+ * 2. Interface Communication: Uses FragmentBookDetailsListener to notify Activity on back button click.
  */
 public class FragmentBookDetails extends Fragment {
 
+    private static final String ARG_BOOK = "book";
 
-    FragmentBookDetailsListener mListener;
-    static Book bookViewing;
-    Button backButton;
-    TextView titleText;
-    TextView authorNameText;
-    TextView genreText;
-    TextView yearText;
+    private FragmentBookDetailsListener mListener;
+    private Book bookViewing;
+    private Button backButton;
+    private TextView titleText;
+    private TextView authorNameText;
+    private TextView genreText;
+    private TextView yearText;
 
-
+    /**
+     * Static factory method to pass a Serializable Book object into the fragment via Bundle arguments.
+     */
     public static FragmentBookDetails newInstance(Book book) {
-
-        Bundle args = new Bundle();
-
         FragmentBookDetails fragment = new FragmentBookDetails();
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_BOOK, book);
         fragment.setArguments(args);
-
-        bookViewing = book;
         return fragment;
     }
 
@@ -74,37 +77,48 @@ public class FragmentBookDetails extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (getArguments() != null) {
+            // Retrieve Serializable Book object safely across Android SDK versions
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                bookViewing = getArguments().getSerializable(ARG_BOOK, Book.class);
+            } else {
+                bookViewing = (Book) getArguments().getSerializable(ARG_BOOK);
+            }
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_book_details, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //Get Components
+        
+        // Get UI components
         backButton = view.findViewById(R.id.buttonBackBookDetails);
         titleText = view.findViewById(R.id.textViewBookTitleDisplay);
         authorNameText = view.findViewById(R.id.textViewAuthorNameDisplay);
         genreText = view.findViewById(R.id.textViewGenreDisplay);
         yearText = view.findViewById(R.id.textViewYearDisplay);
 
-        //Set text for display
-        titleText.setText(bookViewing.getTitle());
-        authorNameText.setText(bookViewing.getAuthor());
-        genreText.setText(bookViewing.getGenre());
-        yearText.setText(String.valueOf(bookViewing.getYear()));
+        // Populate views with Book data
+        if (bookViewing != null) {
+            titleText.setText(bookViewing.getTitle());
+            authorNameText.setText(bookViewing.getAuthor());
+            genreText.setText(bookViewing.getGenre());
+            yearText.setText(String.valueOf(bookViewing.getYear()));
+        }
 
-        //Set a on click listner for a back button
+        // Back button click listener
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onBooksDetailsBackClicked();
+                if (mListener != null) {
+                    mListener.onBooksDetailsBackClicked();
+                }
             }
         });
     }

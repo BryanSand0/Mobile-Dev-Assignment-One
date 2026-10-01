@@ -25,6 +25,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * FragmentBooks displays a list of books filtered by a selected genre.
+ * 
+ * DEV NOTES:
+ * 1. Data Passing Down: Receives genre via Bundle arguments using static newInstance(genre).
+ * 2. Custom Adapter: Implements inner class BooksAdapter (extends ArrayAdapter<Book>) 
+ *    to bind custom Book objects to book_list_item.xml rows using convertView recycling.
+ * 3. Interface Communication: Uses FragmentBooksListener to notify Activity of book clicks or back button.
+ */
 public class FragmentBooks extends Fragment {
 
     private static final String ARG_GENRE = "genre";
@@ -47,6 +56,10 @@ public class FragmentBooks extends Fragment {
         // Required empty public constructor
     }
 
+    /**
+     * Static factory method to create FragmentBooks and pass the selected genre in a Bundle.
+     * This is best practice because Android can restore these arguments during configuration changes.
+     */
     public static FragmentBooks newInstance(String genre) {
         FragmentBooks fragment = new FragmentBooks();
         Bundle args = new Bundle();
@@ -93,6 +106,7 @@ public class FragmentBooks extends Fragment {
         listViewBooks = view.findViewById(R.id.listViewBooks);
         buttonBackBooks = view.findViewById(R.id.buttonBackBooks);
 
+        // Fetch books corresponding to the passed genre
         if (mGenre != null) {
             textViewGenreTitle.setText(mGenre);
             books = Data.getBooksByGenre(mGenre);
@@ -104,9 +118,11 @@ public class FragmentBooks extends Fragment {
             books = new ArrayList<>();
         }
 
+        // Initialize custom adapter and attach to ListView
         adapter = new BooksAdapter(requireContext(), books);
         listViewBooks.setAdapter(adapter);
 
+        // Item click listener for ListView rows
         listViewBooks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -117,6 +133,7 @@ public class FragmentBooks extends Fragment {
             }
         });
 
+        // Back button click listener
         buttonBackBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,6 +144,10 @@ public class FragmentBooks extends Fragment {
         });
     }
 
+    /**
+     * Custom ArrayAdapter for Book objects.
+     * Demonstrates getView() layout inflation and convertView recycling for performance.
+     */
     private class BooksAdapter extends ArrayAdapter<Book> {
 
         public BooksAdapter(@NonNull Context context, @NonNull List<Book> objects) {
@@ -136,6 +157,7 @@ public class FragmentBooks extends Fragment {
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            // convertView recycling: Reuse views that have scrolled off-screen
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.book_list_item, parent, false);
             }

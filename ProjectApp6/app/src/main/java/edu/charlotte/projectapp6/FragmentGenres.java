@@ -22,6 +22,14 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**
+ * FragmentGenres displays a list of book genres using a standard ListView and ArrayAdapter.
+ * 
+ * DEV NOTES - LISTVIEWS, ADAPTERS & INTERFACES:
+ * 1. Interface communication: Defines FragmentGenresListener so the fragment can notify
+ *    MainActivity when a genre is selected without holding a direct reference to the activity.
+ * 2. Adapter: Uses a built-in ArrayAdapter with android.R.layout.simple_list_item_1 to display strings.
+ */
 public class FragmentGenres extends Fragment {
 
     Data data;
@@ -31,6 +39,10 @@ public class FragmentGenres extends Fragment {
     ArrayAdapter<String> adapter;
     FragmentGenresListener mListener;
 
+    /**
+     * Fragment-to-Activity Communication Interface.
+     * The host Activity must implement this interface.
+     */
     public interface FragmentGenresListener {
         void onGenreSelected(String genre);
     }
@@ -43,6 +55,10 @@ public class FragmentGenres extends Fragment {
         return new FragmentGenres();
     }
 
+    /**
+     * onAttach is called when the fragment is first attached to its context (Activity).
+     * We verify that the hosting Activity implements our listener interface here.
+     */
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -56,7 +72,7 @@ public class FragmentGenres extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        mListener = null; // Prevent memory leaks
     }
 
     @Override
@@ -68,17 +84,22 @@ public class FragmentGenres extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        
+        // Load data and setup ListView
         data = new Data();
         genres = data.getAllGenres();
         listView = view.findViewById(R.id.listViewGenres);
+        
+        // ArrayAdapter bridges the ArrayList<String> data to the ListView rows
         adapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1, android.R.id.text1, genres);
-
         listView.setAdapter(adapter);
 
+        // Handle item clicks on the ListView
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (mListener != null) {
+                    // Pass the selected genre string up to MainActivity via the interface callback
                     mListener.onGenreSelected(genres.get(position));
                 }
             }
