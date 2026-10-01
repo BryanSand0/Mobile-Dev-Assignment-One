@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements FragmentGenres.FragmentGenresListener, FragmentBooks.FragmentBooksListener {
+public class MainActivity extends AppCompatActivity implements FragmentGenres.FragmentGenresListener, FragmentBooks.FragmentBooksListener, FragmentBookDetails.FragmentBookDetailsListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +38,19 @@ public class MainActivity extends AppCompatActivity implements FragmentGenres.Fr
 
     @Override
     public void onBookSelected(Book book) {
-        // TODO: Part 3 - Implement Book Details screen navigation
-        Toast.makeText(this, "Selected book: " + book.getTitle(), Toast.LENGTH_SHORT).show();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main, FragmentBookDetails.newInstance(book))
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
     public void onBooksBackClicked() {
+        getSupportFragmentManager().popBackStack();
+    }
+    @Override
+    public void onBooksDetailsBackClicked() {
         getSupportFragmentManager().popBackStack();
     }
 }
