@@ -2,11 +2,12 @@ package edu.charlotte.projectapp6;
 
 /*
  * Assignment #6
- * File Name: FragmentBooks.java
+ * File Name: FragmentBookDetails.java
  * Full Name: Bryan Sandoval, Lucnel Nordelus
  */
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,24 +27,21 @@ import android.widget.TextView;
  */
 public class FragmentBookDetails extends Fragment {
 
+    private static final String ARG_BOOK = "book";
 
-    FragmentBookDetailsListener mListener;
-    static Book bookViewing;
-    Button backButton;
-    TextView titleText;
-    TextView authorNameText;
-    TextView genreText;
-    TextView yearText;
-
+    private FragmentBookDetailsListener mListener;
+    private Book bookViewing;
+    private Button backButton;
+    private TextView titleText;
+    private TextView authorNameText;
+    private TextView genreText;
+    private TextView yearText;
 
     public static FragmentBookDetails newInstance(Book book) {
-
-        Bundle args = new Bundle();
-
         FragmentBookDetails fragment = new FragmentBookDetails();
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_BOOK, book);
         fragment.setArguments(args);
-
-        bookViewing = book;
         return fragment;
     }
 
@@ -74,7 +72,13 @@ public class FragmentBookDetails extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (getArguments() != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                bookViewing = getArguments().getSerializable(ARG_BOOK, Book.class);
+            } else {
+                bookViewing = (Book) getArguments().getSerializable(ARG_BOOK);
+            }
+        }
     }
 
     @Override
@@ -95,16 +99,20 @@ public class FragmentBookDetails extends Fragment {
         yearText = view.findViewById(R.id.textViewYearDisplay);
 
         //Set text for display
-        titleText.setText(bookViewing.getTitle());
-        authorNameText.setText(bookViewing.getAuthor());
-        genreText.setText(bookViewing.getGenre());
-        yearText.setText(String.valueOf(bookViewing.getYear()));
+        if (bookViewing != null) {
+            titleText.setText(bookViewing.getTitle());
+            authorNameText.setText(bookViewing.getAuthor());
+            genreText.setText(bookViewing.getGenre());
+            yearText.setText(String.valueOf(bookViewing.getYear()));
+        }
 
         //Set a on click listner for a back button
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onBooksDetailsBackClicked();
+                if (mListener != null) {
+                    mListener.onBooksDetailsBackClicked();
+                }
             }
         });
     }

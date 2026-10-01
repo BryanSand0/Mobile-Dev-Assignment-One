@@ -1,3 +1,9 @@
+/*
+ * Assignment #6
+ * File Name: Data.java
+ * Full Name: Bryan Sandoval, Lucnel Nordelus
+ */
+
 package edu.charlotte.projectapp6;
 
 import java.util.ArrayList;
