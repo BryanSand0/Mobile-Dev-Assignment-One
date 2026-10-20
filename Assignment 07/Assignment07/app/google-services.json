@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "767730396268",
+    "project_id": "fir-demoproject-3f5a5",
+    "storage_bucket": "fir-demoproject-3f5a5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767730396268:android:7a70f9ac4ce33abd767c49",
+        "android_client_info": {
+          "package_name": "edu.charlotte.assignment07"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkrJWdtzw8yMkpm7WKwQEORgDobLY-yCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767730396268:android:d944fbbd0d60957b767c49",
+        "android_client_info": {
+          "package_name": "edu.charlotte.firebasedemoproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkrJWdtzw8yMkpm7WKwQEORgDobLY-yCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
