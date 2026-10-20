@@ -8,6 +8,14 @@ package edu.charlotte.projectapp6;
 
 import java.io.Serializable;
 
+/**
+ * Book model class representing an individual book item.
+ * <p>
+ * DEV NOTES:
+ * - Implements Serializable: This is a crucial Android requirement if you want to pass 
+ *   an instance of a custom object (like a Book) inside a Bundle (e.g., FragmentBookDetails.newInstance(book)).
+ * - Encapsulation: Contains private fields with public getter and setter methods.
+ */
 public class Book implements Serializable {
     private String title;
     private String author;

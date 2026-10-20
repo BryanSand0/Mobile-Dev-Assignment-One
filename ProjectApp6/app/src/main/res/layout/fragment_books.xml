@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  DEV NOTES - FRAGMENT BOOKS LAYOUT:
+  Contains a header, a genre title TextView (populated dynamically from bundle arguments),
+  a ListView (listViewBooks) displaying filtered books via BooksAdapter, and a Back button.
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

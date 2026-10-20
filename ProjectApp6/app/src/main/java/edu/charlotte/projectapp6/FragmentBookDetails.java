@@ -21,9 +21,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentBookDetails#newInstance} factory method to
- * create an instance of this fragment.
+ * FragmentBookDetails displays detailed information about a selected Book object.
+ * 
+ * DEV NOTES:
+ * 1. Object Passing Down: Receives a Serializable Book object via Bundle arguments in newInstance(book).
+ * 2. Interface Communication: Uses FragmentBookDetailsListener to notify Activity on back button click.
  */
 public class FragmentBookDetails extends Fragment {
 
@@ -37,6 +39,9 @@ public class FragmentBookDetails extends Fragment {
     private TextView genreText;
     private TextView yearText;
 
+    /**
+     * Static factory method to pass a Serializable Book object into the fragment via Bundle arguments.
+     */
     public static FragmentBookDetails newInstance(Book book) {
         FragmentBookDetails fragment = new FragmentBookDetails();
         Bundle args = new Bundle();
@@ -73,6 +78,7 @@ public class FragmentBookDetails extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            // Retrieve Serializable Book object safely across Android SDK versions
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 bookViewing = getArguments().getSerializable(ARG_BOOK, Book.class);
             } else {
@@ -84,21 +90,21 @@ public class FragmentBookDetails extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_book_details, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //Get Components
+        
+        // Get UI components
         backButton = view.findViewById(R.id.buttonBackBookDetails);
         titleText = view.findViewById(R.id.textViewBookTitleDisplay);
         authorNameText = view.findViewById(R.id.textViewAuthorNameDisplay);
         genreText = view.findViewById(R.id.textViewGenreDisplay);
         yearText = view.findViewById(R.id.textViewYearDisplay);
 
-        //Set text for display
+        // Populate views with Book data
         if (bookViewing != null) {
             titleText.setText(bookViewing.getTitle());
             authorNameText.setText(bookViewing.getAuthor());
@@ -106,7 +112,7 @@ public class FragmentBookDetails extends Fragment {
             yearText.setText(String.valueOf(bookViewing.getYear()));
         }
 
-        //Set a on click listner for a back button
+        // Back button click listener
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

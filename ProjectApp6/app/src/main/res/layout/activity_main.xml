@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  DEV NOTES - ACTIVITY LAYOUT:
+  This is the main container activity layout. It hosts a single ConstraintLayout container (id="@+id/main")
+  where Fragments are dynamically added, replaced, or popped via FragmentManager transactions.
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

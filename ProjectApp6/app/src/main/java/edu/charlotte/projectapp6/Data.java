@@ -9,7 +9,17 @@ package edu.charlotte.projectapp6;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Data repository class specifying mock data for the application.
+ * <p>
+ * DEV NOTES:
+ * - Provides static mock book records.
+ * - Uses a HashMap cache (setupMap) to efficiently group books by genre so that 
+ *   FragmentBooks can quickly query books belonging to a specific genre.
+ */
 public class Data {
+    
+    // Static master list containing all books in the app
     static private ArrayList<Book> allBooks = new ArrayList<Book>(){
         {
             add(new Book("The Lord of the Rings", "J.R.R. Tolkien", 1954, "Fantasy"));
@@ -106,18 +116,29 @@ public class Data {
             add(new Book("Brida", "Paulo Coelho", 1990, "Philosophical Fiction"));
         }
     };
+    
+    // HashMap mapping each genre to its respective list of books
     static private HashMap<String, ArrayList<Book>> map;
 
+    /**
+     * Returns a list of all unique book genres extracted from the master book list.
+     */
     static public ArrayList<String> getAllGenres(){
         setupMap();
         return new ArrayList<>(map.keySet());
     }
 
+    /**
+     * Returns a list of books belonging to the specified genre.
+     */
     static public ArrayList<Book> getBooksByGenre(String genre){
         setupMap();
         return map.get(genre);
     }
 
+    /**
+     * Helper method to initialize and populate the genre-to-books HashMap cache.
+     */
     static private void setupMap(){
         if(map == null){
             map = new HashMap<>();
