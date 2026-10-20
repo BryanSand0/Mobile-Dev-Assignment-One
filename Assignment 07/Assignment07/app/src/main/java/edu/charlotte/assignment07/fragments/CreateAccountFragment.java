@@ -10,6 +10,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import edu.charlotte.assignment07.R;
 import edu.charlotte.assignment07.databinding.FragmentCreateAccountBinding;
@@ -21,6 +27,7 @@ public class CreateAccountFragment extends Fragment {
 
 
     FragmentCreateAccountBinding binding;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +48,35 @@ public class CreateAccountFragment extends Fragment {
         binding.buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String name = String.valueOf(binding.editTextText.getText());
+                String email = String.valueOf(binding.editTextEmailAddress.getText());
+                String password = String.valueOf(binding.editTextPassword.getText());
 
+                if (name.length() == 0) {
+                    Toast.makeText(v.getContext(), "Please enter your full name", Toast.LENGTH_SHORT).show();
+                }
+                else if (email.length() == 0) {
+                    Toast.makeText(v.getContext(), "Please enter an email address", Toast.LENGTH_SHORT).show();
+                }
+                else if (password.length() == 0) {
+                    Toast.makeText(v.getContext(), "Please enter your password", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    //TODO: Do something with the full name when creating a user too
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        mListener.onCreateAccountSuccess();
+                                    }
+                                    else {
+                                        String errorMessage = task.getException().getMessage();
+                                        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
             }
         });
     }
