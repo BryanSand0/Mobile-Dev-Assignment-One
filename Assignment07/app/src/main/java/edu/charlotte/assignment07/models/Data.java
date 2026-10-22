@@ -1,3 +1,8 @@
+/**
+ * Assignment: 7
+ * File Name: Data.java
+ * Student Name: Lucnel Nordelus and Bryan Sandoval
+ */
 package edu.charlotte.assignment07.models;
 
 public class Data {
@@ -10,7 +15,7 @@ public class Data {
             "Education & Learning",
             "Leisure & Social",
             "Projects",
-            "Urgent/Important"
+            "Other"
     };
 
     public static final Priority[] priorities = {

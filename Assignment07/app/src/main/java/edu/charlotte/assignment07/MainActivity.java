@@ -1,3 +1,8 @@
+/**
+ * Assignment 7
+ * File Name: MainActivity.java
+ * Student Name: Lucnel Nordelus and Bryan Sandoval
+ */
 package edu.charlotte.assignment07;
 
 import android.os.Bundle;
@@ -7,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import edu.charlotte.assignment07.fragments.AddTaskFragment;
 import edu.charlotte.assignment07.fragments.CreateAccountFragment;
@@ -31,9 +38,19 @@ public class MainActivity extends AppCompatActivity implements SelectPriorityFra
             return insets;
         });
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main, new LoginFragment())
-                .commit();
+        if (savedInstanceState == null) {
+            // Requirement 3: Main Activity should load the “Tasks” Fragment as the initial fragment (or check auth)
+            // If user is already logged in, show TasksFragment, otherwise LoginFragment
+            if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main, new TasksFragment())
+                        .commit();
+            } else {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main, new LoginFragment())
+                        .commit();
+            }
+        }
     }
 
     @Override
@@ -91,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements SelectPriorityFra
     @Override
     public void logoutGotoLogin() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main, new TasksFragment())
+                .replace(R.id.main, new LoginFragment())
                 .commit();
     }
 

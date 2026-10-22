@@ -1,3 +1,8 @@
+/**
+ * Assignment 7
+ * File Name: Priority.java
+ * Student Name: Lucnel Nordelus and Bryan Sandoval
+ */
 package edu.charlotte.assignment07.models;
 
 public class Priority {
