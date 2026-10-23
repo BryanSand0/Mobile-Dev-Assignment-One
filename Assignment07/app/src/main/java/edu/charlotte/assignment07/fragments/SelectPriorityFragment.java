@@ -1,3 +1,9 @@
+/**
+ * Assignment: 7
+ * File Name: SelectPriorityFragment.java
+ * Student Name: Lucnel Nordelus and Bryan Sandoval
+ *
+ */
 package edu.charlotte.assignment07.fragments;
 
 import android.content.Context;

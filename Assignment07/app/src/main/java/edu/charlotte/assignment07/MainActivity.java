@@ -1,7 +1,8 @@
 /**
- * Assignment 7
+ * Assignment: 7
  * File Name: MainActivity.java
  * Student Name: Lucnel Nordelus and Bryan Sandoval
+ *
  */
 package edu.charlotte.assignment07;
 

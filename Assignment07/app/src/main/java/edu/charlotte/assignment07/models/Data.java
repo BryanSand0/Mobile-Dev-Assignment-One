@@ -2,6 +2,7 @@
  * Assignment: 7
  * File Name: Data.java
  * Student Name: Lucnel Nordelus and Bryan Sandoval
+ *
  */
 package edu.charlotte.assignment07.models;
 
