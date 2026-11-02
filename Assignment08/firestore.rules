@@ -1,0 +1,52 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function: Verify user is authenticated with Firebase Authentication
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper function: Verify request user matches the creatorId field
+    function isOwner(creatorId) {
+      return isAuthenticated() && request.auth.uid == creatorId;
+    }
+
+    // Rules for "forums" collection
+    match /forums/{forumId} {
+      // 1. Read: Public access for any authenticated user
+      allow read: if isAuthenticated();
+
+      // 2. Create: Authenticated user creating a forum must set creatorId == auth.uid
+      allow create: if isAuthenticated()
+                   && request.resource.data.creatorId == request.auth.uid;
+
+      // 3. Update:
+      //    a) Creator can edit document fields (title, description)
+      //    b) Any authenticated user can update the 'likedBy' array (like/unlike)
+      allow update: if isAuthenticated() && (
+        isOwner(resource.data.creatorId) ||
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likedBy'])
+      );
+
+      // 4. Delete: ONLY the forum creator can delete the forum document
+      allow delete: if isOwner(resource.data.creatorId);
+
+      // Rules for "comments" subcollection ("forums/{forumId}/comments")
+      match /comments/{commentId} {
+        // Any authenticated user can read comments
+        allow read: if isAuthenticated();
+
+        // Authenticated user posting a comment must set comment's creatorId == auth.uid
+        allow create: if isAuthenticated()
+                     && request.resource.data.creatorId == request.auth.uid;
+
+        // Delete comment: Permitted if user wrote the comment OR user is the forum owner
+        allow delete: if isAuthenticated() && (
+          request.auth.uid == resource.data.creatorId ||
+          request.auth.uid == get(/databases/$(database)/documents/forums/$(forumId)).data.creatorId
+        );
+      }
+    }
+  }
+}
