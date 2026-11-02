@@ -4,7 +4,7 @@
  * Full Name: [Student Name]
  */
 
-package edu.charlotte.assignment08;
+package edu.charlotte.assigment08;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -124,9 +124,13 @@ public class ForumsFragment extends Fragment implements ForumAdapter.ForumAdapte
                 forumList.clear();
                 for (QueryDocumentSnapshot doc : value) {
                     Forum forum = doc.toObject(Forum.class);
+
+
                     if (forum.getForumId() == null) {
                         forum.setForumId(doc.getId());
                     }
+                    //Toast.makeText(getContext(), forum.getForumId().toString(), Toast.LENGTH_SHORT).show();
+
                     forumList.add(forum);
                 }
                 adapter.setForums(forumList);

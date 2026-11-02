@@ -4,20 +4,31 @@
  * Full Name: [Student Name]
  */
 
-package edu.charlotte.assignment08;
+package edu.charlotte.assigment08;
 
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements
         LoginFragment.LoginFragmentListener,
         RegisterFragment.RegisterFragmentListener,
-        ForumsFragment.ForumsFragmentListener {
+        ForumsFragment.ForumsFragmentListener,
+        NewForumFragment.NewForumFragmentListener,
+        ForumDetailsFragment.ForumDetailsFragmentListener
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,11 +99,44 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void gotoNewForum() {
-        Toast.makeText(this, "New Forum screen navigation triggered.", Toast.LENGTH_SHORT).show();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, NewForumFragment.newInstance())
+                .commit();
     }
+    public void submitForum(String title, String desc) {
+        gotoForums();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser() != null) {
+            //Create post map here
+            Map<String, Object> forum = new HashMap<>();
+            forum.put("title", title);
+            forum.put("description", desc);
+            forum.put("createdAt", Timestamp.now());
+            forum.put("creatorId", auth.getCurrentUser().getUid());
+            forum.put("creatorName", auth.getCurrentUser().getDisplayName());
 
+            //Add that post to our collection with a random id.
+            String id = db.collection("forums").document().getId();
+            db.collection("forums").document(id).set(forum).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(MainActivity.this, "Post made!", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+        else Toast.makeText(this, "Must be signed in to make forum posts", Toast.LENGTH_SHORT).show();
+    }
     @Override
     public void gotoForumDetails(String forumId) {
-        Toast.makeText(this, "Forum Details screen navigation triggered.", Toast.LENGTH_SHORT).show();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new ForumDetailsFragment(forumId))
+                .commit();
     }
 }
