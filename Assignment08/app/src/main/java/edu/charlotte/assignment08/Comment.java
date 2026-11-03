@@ -1,5 +1,5 @@
 
-package edu.charlotte.assigment08;
+package edu.charlotte.assignment08;
 
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentId;

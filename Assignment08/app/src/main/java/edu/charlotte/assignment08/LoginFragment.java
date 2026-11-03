@@ -1,5 +1,5 @@
 
-package edu.charlotte.assigment08;
+package edu.charlotte.assignment08;
 
 import android.content.Context;
 import android.os.Bundle;
