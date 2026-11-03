@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".CurrentWeatherActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textViewCurrentWeatherTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Weather\nCharlotte,US"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <ImageView
+            android:id="@+id/imageViewWeatherIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Weather Icon"
+            tools:src="@android:drawable/ic_menu_report_image" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1"
+            android:layout_marginBottom="24dp">
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="Temperature" android:textStyle="bold" android:textSize="16sp" />
+                <TextView android:id="@+id/textViewTemperature" android:text="-- F" android:textSize="16sp" android:gravity="end" />
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="Temperature Max" android:textStyle="bold" android:textSize="16sp" />
+                <TextView android:id="@+id/textViewTempMax" android:text="-- F" android:textSize="16sp" android:gravity="end" />
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="Temperature Min" android:textStyle="bold" android:textSize="16sp" />
+                <TextView android:id="@+id/textViewTempMin" android:text="-- F" android:textSize="16sp" android:gravity="end" />
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="Description" android:textStyle="bold" android:textSize="16sp" />
+                <TextView android:id="@+id/textViewDescription" android:text="--" android:textSize="16sp" android:gravity="end" />
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="Humidity" android:textStyle="bold" android:textSize="16sp" />
+                <TextView android:id="@+id/textViewHumidity" android:text="--" android:textSize="16sp" android:gravity="end" />
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="Wind Speed" android:textStyle="bold" android:textSize="16sp" />
+                <TextView android:id="@+id/textViewWindSpeed" android:text="--" android:textSize="16sp" android:gravity="end" />
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="Wind Degree" android:textStyle="bold" android:textSize="16sp" />
+                <TextView android:id="@+id/textViewWindDegree" android:text="--" android:textSize="16sp" android:gravity="end" />
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="Cloudiness" android:textStyle="bold" android:textSize="16sp" />
+                <TextView android:id="@+id/textViewCloudiness" android:text="--" android:textSize="16sp" android:gravity="end" />
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/buttonForecast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forecast"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</ScrollView>
