@@ -1,8 +1,4 @@
-/*
- * Assignment 9
- * File Name: MainActivity.java
- * Full name of the student: Student Name
- */
+
 package edu.charlotte.assignment09;
 
 import android.content.Intent;
